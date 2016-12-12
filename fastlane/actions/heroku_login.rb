@@ -10,8 +10,8 @@ module Fastlane
       def self.get_user()
         begin
           return {
-            :name => Actions.sh("heroku whoami", log: false).chomp(),
-            :token => Actions.sh("heroku auth:token", log: false).chomp()
+            :name => Actions.sh("heroku whoami", log: false).strip(),
+            :token => Actions.sh("heroku auth:token", log: false).strip()
           }
         rescue StandardError
           return nil
