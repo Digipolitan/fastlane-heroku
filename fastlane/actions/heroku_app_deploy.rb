@@ -13,12 +13,12 @@ module Fastlane
             env_cmd << "#{key}=#{value}"
           end
           env_cmd << "--app #{name}"
-          Actions.sh(env_cmd.join(" "))
+          Actions.sh(env_cmd.join(" "), log: false)
         end
         Actions.sh("heroku git:clone --app #{name}")
         Actions.sh("git -C #{name} pull #{source_git_url}")
         Actions.sh("git -C #{name} push")
-        Actions.sh("rm -rf #{name}")
+        Actions.sh("rm -rf #{name}", log: false)
         end
 
       #####################################################
