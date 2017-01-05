@@ -37,7 +37,7 @@ module Fastlane
         email = params[:email]
         password = params[:password]
         begin
-          Actions.sh("heroku --version", log: true)
+          Actions.sh("heroku --version", log: false)
         rescue StandardError
           UI.user_error! "heroku command not found, install URL : https://devcenter.heroku.com/articles/heroku-cli"
         end
